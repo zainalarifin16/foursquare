@@ -1,0 +1,37 @@
+page-profile {
+	
+}
+.img-circular{
+ position: absolute;
+ top: 70px;
+ left: 100px;
+ width: 200px;
+ height: 200px;
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
+}
+
+.image-background{
+    min-height:270px;
+}
+
+.profile-username{
+	position: absolute;
+	top: 260px;
+	left: 120px;
+}
+
+.profile-logout{
+	position: absolute;
+	top: 15px;
+	left: 10px;
+}
+
+.profile-edit{
+	position: absolute;
+	top: 15px;
+	right: 10px;
+}

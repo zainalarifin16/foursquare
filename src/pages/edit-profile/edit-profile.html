@@ -1,0 +1,93 @@
+<!--
+  Generated template for the EditProfile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-thumbnail style="width: 100%;height: 200px;">
+					<img class="img-circular" src="{{formProfile.picture}}">
+					<button ion-button clear color="dark" class="change-profile-picture" (click)="browseImage()" ><ion-icon name="camera"></ion-icon></button>
+				</ion-thumbnail>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col width-30>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							{{ formProfile.following.size }}
+						</ion-col>
+						<ion-col>
+							{{ formProfile.followers.size }}
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							Following
+						</ion-col>
+						<ion-col>
+							Followers
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+							  <ion-item>
+							    <ion-label floating>Full Name</ion-label>
+							    <ion-input type="text" [(ngModel)]="formProfile.full_name" ></ion-input>
+							  </ion-item>
+
+							  <ion-item>
+							    <ion-label floating>Username</ion-label>
+							    <ion-input type="text" [(ngModel)]="formProfile.username" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Date of Birth</ion-label>
+							    <ion-datetime displayFormat="DD/MMMM/YYYY" [(ngModel)]="formProfile.date_of_birth" ></ion-datetime>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Email</ion-label>
+							    <ion-input type="text" [(ngModel)]="formProfile.email" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Describe Yourself</ion-label>
+							    <ion-input type="text" [(ngModel)]="formProfile.bio" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							  	<ion-label>Show your age and email ?</ion-label>
+							  	<ion-checkbox [(ngModel)]="formProfile.show_age_email" item-right ></ion-checkbox>
+							  </ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<button ion-button color="danger" full (click)="cancel()" >Cancel</button>
+						</ion-col>
+						<ion-col>
+							<button ion-button full (click)="save()" >Save</button>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

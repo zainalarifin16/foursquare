@@ -1,0 +1,79 @@
+<!--
+  Generated template for the Activities page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+    <div #map id="map" ></div>
+	<ion-grid>
+		<ion-row>
+			<ion-segment [(ngModel)]="activities" >
+				<ion-segment-button value="place" >
+					Place
+				</ion-segment-button>
+				<ion-segment-button value="people" >
+					People
+				</ion-segment-button>
+			</ion-segment>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-input type="text" name="search_text" placeholder="Ketik untuk pencarian" ></ion-input>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="activities == null" >
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h3>Recomended People Near You</h3>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-avatar>
+						<img src="https://firebasestorage.googleapis.com/v0/b/jumpin-6277c.appspot.com/o/WWyoAyIFJoWSGDj4VzBPKdyME3G2.jpg?alt=media&token=c36f43b1-b268-414d-a938-55a0f3be74e8">
+					</ion-avatar>
+				</ion-row>
+			</ion-grid>
+		</ion-row>
+		<ion-row *ngIf="activities == null" >
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h3>Recomended Places Near You</h3>
+					</ion-col>
+				</ion-row>
+				<ion-scroll scrollX="true" style="height: 100px;" >
+					<ion-row>
+							<ion-col *ngFor="let post of postLists" width-25>
+								<ion-thumbnail>
+									<img src="{{post.icon}}">
+								</ion-thumbnail>
+							</ion-col>
+					</ion-row>
+				</ion-scroll>
+			</ion-grid>
+		</ion-row>
+		<ion-row [ngSwitch]="activities" >
+			<ion-col *ngSwitchCase="'place'" >
+				<ion-list>
+	                <ion-item *ngFor="let post of postLists" (tap)="showDetailPlace(post.place_id)" >
+	                  	<ion-thumbnail item-left>
+	                		<img src="{{post.icon}}" />
+	                	</ion-thumbnail>
+	                	<p *ngIf="post.checkin && post.checkin.length > 0" ><small>Last Activity </small> <b *ngFor="let orang of post.checkin" >@{{orang}}, </b> </p>
+	                	<h2>{{post.name}}</h2>
+	                	<p>{{post.distance_temp}}</p>
+	            	</ion-item>
+	            </ion-list>
+			</ion-col>
+			<ion-col *ngSwitchCase="'people'" >
+				<ion-grid>
+					<ion-row>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

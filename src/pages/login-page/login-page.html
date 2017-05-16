@@ -1,0 +1,139 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>LoginPage</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding >
+	<ion-grid>
+		<ion-row *ngIf="firstsign == true" >
+			<ion-col>
+				<h2 text-center>JUMPIN</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="firstsign == true" >
+			<ion-col>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<button ion-button full (click)="menuLoginClick()" >Sign In</button>
+						</ion-col>
+						<ion-col>
+							<button ion-button full color="dark" (click)="menuRegisterClick()" >Sign Up</button>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<h3 text-center>OR</h3>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+								<ion-item>
+									<button ion-button icon-only block text-capitalize><ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon> Facebook</button>
+								</ion-item>
+								<ion-item>
+									<button ion-button icon-only block text-capitalize><ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon> Twitter</button>
+								</ion-item>
+								<ion-item>
+									<button ion-button icon-only block text-capitalize><ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon> Google+</button>
+								</ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="signin == true" >
+			<ion-col>
+				<form [formGroup]="loginForm" >
+					<ion-list>
+					  <ion-item>
+					    <ion-label floating>Username</ion-label>
+					    <ion-input type="text" formControlName="email" ></ion-input>
+					  </ion-item>
+
+					  <ion-item>
+					    <ion-label floating>Password</ion-label>
+					    <ion-input type="password" formControlName="password" ></ion-input>
+					  </ion-item>
+					 </ion-list>
+				</form>
+				<button ion-button block (click)="loginClick(loginForm.value ,$event)" >Login</button>
+			</ion-col>
+		</ion-row>
+		<ion-row padding>
+            <strong>
+            <h4 *ngIf="error" style="color:red">Error:&nbsp;{{ error.message }}</h4>
+            </strong>
+        </ion-row>
+		<ion-row *ngIf="signup == true" >
+			<ion-col>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<h2 text-center>Sign Up</h2>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+							  <ion-item>
+							    <ion-label floating>Full Name</ion-label>
+							    <ion-input type="text" [(ngModel)]="full_name" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Date of Birth</ion-label>
+							    <ion-datetime displayFormat="DD/MMMM/YYYY" [(ngModel)]="date_of_birth" ></ion-datetime>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Email</ion-label>
+							    <ion-input type="text" [(ngModel)]="email" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Confirm Email</ion-label>
+							    <ion-input type="text" [(ngModel)]="confirm_email" ></ion-input>
+							  </ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<h2 text-center >User Account</h2>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+							  <ion-item>
+							    <ion-label floating>Username</ion-label>
+							    <ion-input type="text" [(ngModel)]="username" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Password</ion-label>
+							    <ion-input type="password" [(ngModel)]="password" ></ion-input>
+							  </ion-item>
+							  <ion-item>
+							    <ion-label floating>Confirm Password</ion-label>
+							    <ion-input type="password" [(ngModel)]="confirm_password" ></ion-input>
+							  </ion-item>
+
+							</ion-list>
+							<button ion-button block (click)="registerClick($event)" >Sign Up</button>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

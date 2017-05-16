@@ -1,0 +1,111 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding>
+    <div class="image-background" >
+        <img src="{{ profile.background }}" >
+    </div>
+    <img src="{{ profile.picture }}" class="img-circular" >
+    <button ion-button round class="profile-username" >@{{ profile.username }}</button>
+    <button ion-button class="profile-logout" (click)="userLogout()" >Logout</button>
+    <button ion-button class="profile-edit" (click)="editProfile()" >Edit Profile</button>
+    <ion-grid>
+    	<ion-row text-center>
+    		<ion-col width-15>
+    			<ion-grid>
+    				<ion-row>
+    					<ion-col>
+    						Followers
+    					</ion-col>
+    				</ion-row>
+    				<ion-row>
+    					<ion-col>
+    						{{ profile.followers.size }}
+    					</ion-col>
+    				</ion-row>
+    			</ion-grid>
+    		</ion-col>
+    		<ion-col width-15>
+    			<ion-grid>
+    				<ion-row>
+    					<ion-col>
+    						Following
+    					</ion-col>
+    				</ion-row>
+    				<ion-row>
+    					<ion-col>
+    						{{ profile.following.size }}
+    					</ion-col>
+    				</ion-row>
+    			</ion-grid>
+    		</ion-col>
+    		<ion-col width-15>
+    			<ion-grid>
+    				<ion-row>
+    					<ion-col>
+    						Comments
+    					</ion-col>
+    				</ion-row>
+    				<ion-row>
+    					<ion-col>
+    						{{ profile.comments }}
+    					</ion-col>
+    				</ion-row>
+    			</ion-grid>
+    		</ion-col>
+    		<ion-col width-15>
+    			<ion-grid>
+    				<ion-row>
+    					<ion-col>
+    						Posts
+    					</ion-col>
+    				</ion-row>
+    				<ion-row>
+    					<ion-col>
+    						{{ profile.posts.size }}
+    					</ion-col>
+    				</ion-row>
+    			</ion-grid>
+    		</ion-col>
+    	</ion-row>
+    </ion-grid>
+    <ion-grid padding>
+    	<ion-row>
+    		<ion-col offset-15>
+    			<button ion-button full (click)="showPost(true)" ><ion-icon ios="ios-grid" md="md-grid"></ion-icon></button>
+    		</ion-col>
+    		<ion-col>
+    			<button ion-button full (click)="showPost(false)" ><ion-icon ios="ios-list" md="md-list"></ion-icon></button>
+    		</ion-col>
+    	</ion-row>
+    	<ion-row>
+	    	<ion-grid padding>
+	    		<ion-row *ngIf="viewPost == true" >
+	    			<ion-grid>
+	    				<ion-row *ngFor="let row of postsGrid" >
+	    					<ion-col width-50 *ngFor="let post of row" >
+				    			<img src="{{post.image}}" />
+				    		</ion-col>
+	    				</ion-row>
+	    			</ion-grid>
+	    		</ion-row>
+	    		<ion-row *ngIf="viewPost == false" >
+					<ion-list>
+						<ion-item *ngFor="let post of postsList">
+							<ion-thumbnail item-left>
+								<img src="{{post.image}}" />
+							</ion-thumbnail>
+							<h2>{{post.name}}</h2>
+							<p>{{post.msg}}</p>
+						</ion-item>
+					</ion-list>
+				</ion-row>
+	    	</ion-grid>
+    	</ion-row>
+    </ion-grid>
+</ion-content>
